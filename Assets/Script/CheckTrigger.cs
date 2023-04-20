@@ -8,13 +8,14 @@ public class CheckTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Coin")
         {
+            GameManager.instance.AddScore();
             Destroy(collision.gameObject, 0.02f);
         }
 
         if (collision.gameObject.tag == "Wall")
         {
-            Debug.Log("Game Over");
-            Destroy(gameObject,0.02f);
+           
+           GameManager.instance.GameOver();
         }
     }
 }

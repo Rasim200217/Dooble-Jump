@@ -38,10 +38,16 @@ public class Player : MonoBehaviour
         {
             maxJump = maxJumpValue;
         }
+
+        if (isGrounded == false)
+        {
+            FindObjectOfType<AudioManager>().Play("Land");
+        } 
     }
 
     void Jump()
     {
+        FindObjectOfType<AudioManager>().Play("Jump");
         rigidbody2D.velocity = Vector2.zero;
         rigidbody2D.AddForce(new Vector2(0, jumpSpeed));
     }

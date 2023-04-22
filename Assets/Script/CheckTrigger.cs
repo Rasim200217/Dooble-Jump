@@ -8,14 +8,16 @@ public class CheckTrigger : MonoBehaviour
     {
         if (collision.gameObject.tag == "Coin")
         {
+            FindObjectOfType<AudioManager>().Play("Coin");
             GameManager.instance.AddScore();
             Destroy(collision.gameObject, 0.02f);
         }
 
         if (collision.gameObject.tag == "Wall")
         {
-           
-           GameManager.instance.GameOver();
+            FindObjectOfType<AudioManager>().Play("GameOver");
+            GameManager.instance.GameOver();
+            Destroy(gameObject);
         }
     }
 }

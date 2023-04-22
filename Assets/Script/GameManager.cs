@@ -22,6 +22,10 @@ public class GameManager : MonoBehaviour
     private int randomIndex;
     public Color[] colorChange;
 
+    public float initialGameSpeed = 5f;
+    public float gameSpeedIncrease = 0.01f;
+    public float gameSpeed {  get; private set; }
+
     private void Awake()
     {
         if (instance == null)
@@ -43,11 +47,14 @@ public class GameManager : MonoBehaviour
 
         currentText.text = PlayerPrefs.GetInt("Score").ToString();
         highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
+
+        NewGame();
     }
 
     private void Update()
     {
         ApplyColor();
+        gameSpeed += gameSpeedIncrease * Time.deltaTime;
     }
 
     public void AddScore()
@@ -56,17 +63,25 @@ public class GameManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    private void NewGame()
+    {
+        gameSpeed = initialGameSpeed;
+    }
+
     public void GameOver()
     {
-        if(score > PlayerPrefs.GetInt("HighScore"))
+        if (score > PlayerPrefs.GetInt("HighScore"))
         {
             PlayerPrefs.SetInt("HighScore", score);
         }
+
+        FindObjectOfType<AudioManager>().Play("GameOver");
         PlayerPrefs.SetInt("Score", score);
         currentText.text = PlayerPrefs.GetInt("Score").ToString();
         highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
 
         GameOverPanel.SetActive(true);
+   
     }
 
     public void RestartLevel()

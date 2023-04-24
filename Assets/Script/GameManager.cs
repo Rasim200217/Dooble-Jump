@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text currentText;
     public TMP_Text highScoreText;
     public Button restartButton;
+    public Button quitMenuButton;
 
     public Camera mainCam;
     public Image backgroundImage;
@@ -44,6 +45,9 @@ public class GameManager : MonoBehaviour
         GameOverPanel.SetActive(false);
         restartButton.onClick.RemoveAllListeners();
         restartButton.onClick.AddListener(RestartLevel);
+
+        quitMenuButton.onClick.RemoveAllListeners();
+        quitMenuButton.onClick.AddListener(QuitMenu);
 
         currentText.text = PlayerPrefs.GetInt("Score").ToString();
         highScoreText.text = PlayerPrefs.GetInt("HighScore").ToString();
@@ -87,6 +91,11 @@ public class GameManager : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene("GameScene");
+    }
+
+    public void QuitMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
     void ApplyColor()

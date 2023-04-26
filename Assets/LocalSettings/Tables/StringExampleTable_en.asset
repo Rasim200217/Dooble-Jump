@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 62008696832
-    m_Localized: Play
+    m_Localized: PLAY
     m_Metadata:
       m_Items: []
   - m_Id: 941562634240
-    m_Localized: Soon...
+    m_Localized: SOON...
     m_Metadata:
       m_Items: []
   - m_Id: 3573257707520
@@ -35,7 +35,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4343558414336
-    m_Localized: Game Over
+    m_Localized: GAME OVER
+    m_Metadata:
+      m_Items: []
+  - m_Id: 765275876204544
+    m_Localized: RETRY
+    m_Metadata:
+      m_Items: []
+  - m_Id: 765371644747776
+    m_Localized: MENU
     m_Metadata:
       m_Items: []
   references:

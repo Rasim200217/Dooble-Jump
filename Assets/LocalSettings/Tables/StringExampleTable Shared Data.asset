@@ -35,6 +35,14 @@ MonoBehaviour:
     m_Key: gameOverKey
     m_Metadata:
       m_Items: []
+  - m_Id: 765275876204544
+    m_Key: retryKey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 765371644747776
+    m_Key: menuKey
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

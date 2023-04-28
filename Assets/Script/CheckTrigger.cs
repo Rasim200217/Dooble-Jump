@@ -18,6 +18,7 @@ public class CheckTrigger : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("GameOver");
             GameManager.instance.GameOver();
             Destroy(gameObject);
+            Handheld.Vibrate();
         }
     }
 }

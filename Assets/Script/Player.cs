@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -24,12 +25,12 @@ public class Player : MonoBehaviour
     private void Update()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, whatIsGround);
-        if (Input.GetMouseButtonDown(0) && maxJump > 0)
+        if (Input.touches.Any(x=>x.phase==TouchPhase.Began) && maxJump > 0)
         {
             maxJump--;
             Jump();
         }
-        else if (Input.GetMouseButtonDown(0) && maxJump == 0 && isGrounded)
+        else if (Input.touches.Any(x=>x.phase==TouchPhase.Began) && maxJump == 0 && isGrounded)
         {
             Jump();
         }
